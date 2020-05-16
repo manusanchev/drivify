@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->integer('login_attemps')->default(0);
-            $table->boolean('blocked_account')->default(false);
+            $table->dateTime('email_verified_at')->nullable();
             $table->string('role')->default('traveler');
             $table->timestamps();
         });
