@@ -19,4 +19,16 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/{slug}', 'HomeController@index')->where('any', '(.*)');;
+Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
+
+    Route::get('/user', 'UserController@getHomeData')->name('homeData');
+
+    Route::get('/img', 'UserController@getPerfil')->name('img');
+    Route::put('/img/edit/','UserController@editarPerfil')->name('editarPerfil');
+    Route::delete('/img/eliminar','UserController@eliminarPerfil')->name('eliminarPerfil');
+
+});
+
+
