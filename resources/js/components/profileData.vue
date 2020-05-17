@@ -3,7 +3,9 @@
         <header>
             <div class="profile-header container-fluid"></div>
             <div class="container-img container d-flex justify-content-around">
-                <div class="img-xl shadow rounded-circle" alt="avatar"></div>
+<!---->
+                <div v-if="profile.image!=null" class="shadow img-xl rounded-circle" alt="avatar" :style="{backgroundImage: 'url(' + profile.image+')'}"></div>
+                <div v-else class="shadow img-xl default rounded-circle" alt="avatar"></div>
             </div>
         </header>
         <div class="container-fluid d-flex justify-content-between mt-2">
@@ -29,12 +31,17 @@
             return{
                 url: window.location.origin,
                 profile:{}
+
             }
         },
         methods: {
             getData(){
                 axios.get(this.url+"/auth-api/user")
-                    .then(response => {this.profile = response.data;  });
+                    .then(response => {
+                        this.profile = response.data;
+                        this.profile.image = "/images/"+this.profile.image;
+
+                    });
 
 
             }
@@ -55,8 +62,11 @@
         filter: blur(1px);
 
     }
-    .img-xl{
+    .default{
         background-image: url('/css/auth/login.jpg');
+    }
+    .img-xl{
+
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

@@ -25,9 +25,10 @@ Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
 
     Route::get('/user', 'UserController@getHomeData')->name('homeData');
 
-    Route::get('/img', 'UserController@getPerfil')->name('img');
-    Route::put('/img/edit/','UserController@editarPerfil')->name('editarPerfil');
-    Route::delete('/img/eliminar','UserController@eliminarPerfil')->name('eliminarPerfil');
+    Route::get('/perfil', 'UserController@getPerfil')->name('img');
+    Route::put('/perfil/edit','UserController@editarPerfil')->name('editarPerfil');
+    Route::post('/perfil/uploadImage','UserController@uploadImage')->name('uploadImage');
+    Route::delete('/perfil/eliminar','UserController@eliminarPerfil')->name('eliminarPerfil');
 
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Achievement;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -65,11 +66,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::insertGetId([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'remember_token' => Hash::make(Carbon::now().$data['email'])
         ]);
+        $achievement = new Achievement();
+        $achievement->user_id = $user;
+        $achievement->save();
+
+        return User::find($user);
     }
 }
