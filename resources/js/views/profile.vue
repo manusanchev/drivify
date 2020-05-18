@@ -202,7 +202,7 @@
                                 title: 'El nombre se ha actualizado correctamente',
 
                             });
-                            vm.profile.name = vm.editProfile.name;
+                            this.profile.name = this.editProfile.name;
                         }else{
                             this.$notify({
                                 group: 'foo',
@@ -229,16 +229,15 @@
                 let vm = this;
                 axios.put(this.url + "/auth-api/perfil/edit", {
                     username: vm.editProfile.username,
-                })
-                    .then(response => {
+                }).then(response => {
                         if(response.data[1]===200){
                             this.$notify({
                                 group: 'foo',
                                 type:'success',
                                 title: 'El usuario se ha actualizado correctamente',
-
                             });
-                            vm.profile.username = vm.editProfile.name;
+
+                            this.profile.username =  this.editProfile.username;
                         }else{
                             this.$notify({
                                 group: 'foo',

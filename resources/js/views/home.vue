@@ -8,12 +8,12 @@
                     <p class="font-weight-bold text-center h5 p-2">Cuenta</p>
                 </div>
             </router-link>
-            <a href="#" class="text-decoration-none">
+            <router-link to="/viaje" class="text-decoration-none">
                 <div class="menu bg-white shadow  r-menu mb-2">
                     <div class="img-menu img-menu-2  r-menu"></div>
                     <p class="font-weight-bold text-center h5 p-2">Ir de viaje</p>
                 </div>
-            </a>
+            </router-link>
             <a href="#" class="text-decoration-none">
                 <div class="menu bg-white shadow r-menu mb-2">
                     <div class="img-menu img-menu-3 r-menu "></div>

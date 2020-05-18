@@ -3,7 +3,7 @@
         <header>
             <div class="profile-header container-fluid"></div>
             <div class="container-img container d-flex justify-content-around">
-<!---->
+
                 <div v-if="profile.image!=null" class="shadow img-xl rounded-circle" alt="avatar" :style="{backgroundImage: 'url(' + profile.image+')'}"></div>
                 <div v-else class="shadow img-xl default rounded-circle" alt="avatar"></div>
             </div>

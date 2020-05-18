@@ -21,9 +21,19 @@ window.Vue = require('vue');
 
 Vue.component('header-component', require('./components/headerComponent.vue').default);
 Vue.component('footer-component', require('./components/footerComponent.vue').default);
+Vue.component('profile-data', require('./components/profileData.vue').default);
+Vue.component('choose-songs', require('./components/chooseSongs.vue').default);
+
+
 Vue.component('home', require('./views/home.vue').default);
 Vue.component('profile', require('./views/profile.vue').default);
-Vue.component('profile-data', require('./components/profileData.vue').default);
+Vue.component('travel', require('./views/travel.vue').default);
+Vue.component('travel-conductor', require('./views/travelConductor.vue').default);
+Vue.component('travel-ocupante', require('./views/travelOcupante.vue').default);
+Vue.component('choose-song-conductor', require('./views/chooseSongConductor.vue').default);
+//Vue.component('choose-song-ocupante', require('./views/chooseSongOcupante.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,3 +47,4 @@ const app = new Vue({
     el: '#app',
     router
 });
+
