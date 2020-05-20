@@ -17,7 +17,9 @@ const routes =  [
     },
     {
         path:'/perfil',
-        component: profile
+        name:"perfil",
+        component: profile,
+        props: true
     },
 
     {
@@ -35,7 +37,15 @@ const routes =  [
     {
         path: '/viaje/conductor/elegir',
         component: chooseSongConductor
-    }
+    },
+    // {
+    //     path: '/viajes/conductor/canciones-elegidas',
+    //     component:choosedSongsConductor
+    // },
+    // {
+    //     path: '/viajes/conductor/playlists',
+    //     component:playlistConductor
+    // }
 
 ]
 

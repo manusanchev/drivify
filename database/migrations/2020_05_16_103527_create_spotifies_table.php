@@ -16,9 +16,7 @@ class CreateSpotifiesTable extends Migration
         Schema::create('spotifies', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->integer('user_id')->unsigned()->unique();
-            $table->string('username');
-            $table->string('country')->nullable();
-            $table->string('facebook_ID')->nullable();
+            $table->string('access_token')->nullable();
             $table->timestamps();
         });
     }

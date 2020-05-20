@@ -19,11 +19,8 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
-//Route::any('/{slug}', 'HomeController@index')->where('any', '(.*)');;
-//Route::any('/viaje/{slug}', 'HomeController@index')->where('any', '(.*)');
-//Route::any('/viaje/ocupante/{slug}', 'HomeController@index')->where('any', '(.*)');
-//Route::any('/viaje/conductor/{slug}', 'HomeController@index')->where('any', '(.*)');
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
@@ -38,9 +35,12 @@ Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
     Route::post('/viajes/crear', 'TravelController@crearViaje');
     Route::post('/viajes/code', 'TravelController@comprobarCodigo');
 
+    Route::post('/spotify', 'UserController@VincularSpotify')->middleware('auth');
+
+
 });
 
-
+//
 Route::get('/{vue_capture}', function () {
     return view('home');
-})->where('vue_capture', '^(?!storage).*$');
+})->where('vue_capture', '^(?!storage).*$')->middleware('auth');

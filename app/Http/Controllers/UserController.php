@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Spotify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class UserController extends Controller
         return [
             'name' => $user->name,
             'username' => $user->username,
-            'spotify' => $user->spotify,
+            'spotify' => $user->spotify->access_token,
         ];
     }
 
@@ -60,9 +61,6 @@ class UserController extends Controller
             } else {
                 return response()->json(["error", 404]);
             }
-        } else {
-
-
         }
 
     }
@@ -96,6 +94,18 @@ class UserController extends Controller
         Auth::logout();
         Session::flush();
         return redirect('/register');
+
+    }
+    public function VincularSpotify(Request $request){
+
+            $token = $request->access_token;
+
+            $spotify = Spotify::updateOrCreate(
+                ['user_id' =>  Auth::id()],
+                ['access_token' => $token]
+            );
+             return response()->json(['success' => 200]);
+
 
     }
 }

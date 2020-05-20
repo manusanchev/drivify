@@ -2,7 +2,7 @@
 
     <div>
         <profile-data></profile-data>
-        <notifications group="foo" />
+        <notifications group="foo"/>
         <div
             class="container bg-light d-flex justify-content-between shadow align-items-center flex-column flex-md-row p-5 mt-5 mb-5 r-menu">
             <div class="container d-flex flex-column form-group">
@@ -19,7 +19,7 @@
                         </svg>
                         Volver
                     </router-link>
-                    <h3 class="text-center">Detalles personales</h3>
+                    <h3 class="text-center">Detalles personales </h3>
                     <hr>
                     <div class="d-flex flex-column">
                         <div class="row w-75 p-2 m-auto text-center">
@@ -103,7 +103,9 @@
                             </div>
                             <div class="col-12  col-md-6 ">
                                 <button v-if="profile.spotify!=null" class="btn btn-danger">Desvincular cuenta</button>
-                                <button v-else class="btn btn-success">Vincular Cuenta</button>
+                                <button v-else class="btn btn-success" @click="vincularSpotifyGetAccess">Vincular
+                                    Cuenta
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -156,6 +158,7 @@
 <script>
 
     export default {
+        props: ["action"],
         data() {
             return {
                 url: window.location.origin,
@@ -163,19 +166,31 @@
                 editProfile: {},
                 editarNombreShow: false,
                 editarUsuarioShow: false,
-
+                CLIENT_ID: "78222442429d4cac85e7be9ac7a4f13f",
+                CLIENT_SECRET: "7ee859747e584c04abe510feaca410b7",
+                REDIRECT_URI: "http:%2F%2Flocalhost:80%2Fperfil%2F",
             }
         },
         mounted() {
             this.getDataProfile();
+            if (window.location.hash) {
+                this.vincularSpotify(window.location.hash.substring(1));
+            }
 
+            if (this.action === "redirect-spotify") {
+                this.$notify({
+                    group: 'foo',
+                    type: 'warn',
+                    title: 'Debes vincular tu cuenta de Spotify para continuar',
+
+                });
+            }
         },
         methods: {
             getDataProfile() {
                 axios.get(this.url + "/auth-api/perfil")
                     .then(response => {
                         this.profile = response.data;
-                        console.log(this.profile)
                     });
             },
             deleteAccount() {
@@ -195,18 +210,18 @@
                 })
                     .then(response => {
 
-                        if(response.data[1]===200){
+                        if (response.data[1] === 200) {
                             this.$notify({
                                 group: 'foo',
-                                type:'success',
+                                type: 'success',
                                 title: 'El nombre se ha actualizado correctamente',
 
                             });
                             this.profile.name = this.editProfile.name;
-                        }else{
+                        } else {
                             this.$notify({
                                 group: 'foo',
-                                type:'error',
+                                type: 'error',
                                 title: 'No se ha podido actualizar',
                             });
                         }
@@ -215,7 +230,7 @@
                     .catch(error => {
                         this.$notify({
                             group: 'foo',
-                            type:'error',
+                            type: 'error',
                             title: 'No se ha podido actualizar',
                         });
                     });
@@ -230,65 +245,66 @@
                 axios.put(this.url + "/auth-api/perfil/edit", {
                     username: vm.editProfile.username,
                 }).then(response => {
-                        if(response.data[1]===200){
-                            this.$notify({
-                                group: 'foo',
-                                type:'success',
-                                title: 'El usuario se ha actualizado correctamente',
-                            });
+                    console.log(response.data);
+                    if (response.data[1] === 200) {
+                        this.$notify({
+                            group: 'foo',
+                            type: 'success',
+                            title: 'El usuario se ha actualizado correctamente',
+                        });
 
-                            this.profile.username =  this.editProfile.username;
-                        }else{
-                            this.$notify({
-                                group: 'foo',
-                                type:'error',
-                                title: 'No se ha podido actualizar',
-                            });
-                        }
+                        this.profile.username = this.editProfile.username;
+                    } else {
+                        this.$notify({
+                            group: 'foo',
+                            type: 'error',
+                            title: 'No se ha podido actualizar',
+                        });
+                    }
 
-                    })
+                })
                     .catch(error => {
                         this.$notify({
                             group: 'foo',
-                            type:'error',
+                            type: 'error',
                             title: 'No se ha podido actualizar',
                         });
                     });
 
             },
-            imageChange(e){
+            imageChange(e) {
 
                 this.editProfile.image = e.target.files[0];
 
             },
             uploadImage() {
 
-                if(this.editProfile.image){
+                if (this.editProfile.image) {
                     const config = {
-                        headers: { 'enctype': 'multipart/form-data' }
+                        headers: {'enctype': 'multipart/form-data'}
                     }
 
                     let formData = new FormData();
 
-                    formData.append('image',this.editProfile.image );
+                    formData.append('image', this.editProfile.image);
 
-                    axios.post(this.url + "/auth-api/perfil/uploadImage",formData , config)
+                    axios.post(this.url + "/auth-api/perfil/uploadImage", formData, config)
                         .then(response => {
-                            if(response.data[1]===200){
+                            if (response.data[1] === 200) {
                                 this.$notify({
                                     group: 'foo',
-                                    type:'success',
+                                    type: 'success',
                                     title: 'La imagen se ha actualizado correctamente',
 
                                 });
                                 vm.profile.username = vm.editProfile.name;
                                 window.location.reload();
-                            }else{
+                            } else {
                                 this.$notify({
                                     group: 'foo',
-                                    type:'error',
+                                    type: 'error',
                                     title: 'No se ha podido agregar',
-                                    text:'Debe ser una imagen'
+                                    text: 'Debe ser una imagen'
                                 });
                             }
 
@@ -296,13 +312,43 @@
                         .catch(error => {
                             this.$notify({
                                 group: 'foo',
-                                type:'error',
+                                type: 'error',
                                 title: 'No se ha podido agregar',
-                                text:'Debe ser una imagen'
+                                text: 'Debe ser una imagen'
                             });
                         });
 
                 }
+
+            },
+            vincularSpotifyGetAccess() {
+
+                const spotifyLogin = `https://accounts.spotify.com/authorize?client_id=${this.CLIENT_ID}&redirect_uri=${this.REDIRECT_URI}&scope=user-read-private%20playlist-read-private%20playlist-modify-public%20user-read-email&response_type=token&state=123`;
+                window.location.href = spotifyLogin;
+
+            },
+            vincularSpotify(hash) {
+                let result = {};
+                hash.split('&').forEach(item => {
+                    result[item.split('=')[0]] = decodeURIComponent(item.split('=')[1]);
+                });
+                //
+
+
+                var data = {
+                    access_token: result.access_token,
+                }
+
+                 axios.post(this.url+'/auth-api/spotify',data)
+                .then(response => {
+                    console.log(response.data.success);
+                        if(response.data.success === 200){
+                            window.history.go(-2);
+
+                        }else{
+                           window.location.href = this.url+"/perfil";
+                        }
+                })
 
             }
 
