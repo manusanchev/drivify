@@ -9,10 +9,13 @@ import travel from "./views/travel";
 import travelConductor from "./views/travelConductor";
 import travelOcupante from "./views/travelOcupante";
 import chooseSongConductor from "./views/chooseSongConductor";
+import chooseSongOcupante from "./views/chooseSongOcupante";
 const routes =  [
     {
         path : '/home',
+        name: 'home',
         component: home,
+        props: true
 
     },
     {
@@ -24,28 +27,31 @@ const routes =  [
 
     {
         path:'/viaje',
-        component: travel
+        component: travel,
+        props: true
     },
     {
         path: '/viaje/conductor',
-        component: travelConductor
+        component: travelConductor,
+        props: true
     },
     {
         path: '/viaje/ocupante',
-        component: travelOcupante
+        component: travelOcupante,
+        props: true
     },
     {
         path: '/viaje/conductor/elegir',
-        component: chooseSongConductor
+        name:"conductor-elegir",
+        component: chooseSongConductor,
+        props: true
     },
-    // {
-    //     path: '/viajes/conductor/canciones-elegidas',
-    //     component:choosedSongsConductor
-    // },
-    // {
-    //     path: '/viajes/conductor/playlists',
-    //     component:playlistConductor
-    // }
+    {
+        path: '/viaje/ocupante/elegir',
+        component: chooseSongOcupante,
+        props: true
+    },
+
 
 ]
 

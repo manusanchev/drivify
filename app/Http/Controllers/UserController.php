@@ -26,10 +26,12 @@ class UserController extends Controller
     public function getPerfil()
     {
         $user = Auth::user();
+
         return [
             'name' => $user->name,
             'username' => $user->username,
             'spotify' => $user->spotify->access_token,
+            'spotify_expiration' => $user->spotify->updated_at
         ];
     }
 
@@ -105,7 +107,6 @@ class UserController extends Controller
                 ['access_token' => $token]
             );
              return response()->json(['success' => 200]);
-
-
     }
+
 }

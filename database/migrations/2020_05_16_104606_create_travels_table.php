@@ -24,6 +24,7 @@ class CreateTravelsTable extends Migration
             $table->integer('passengers');
             $table->double('distance');
             $table->integer('duration');
+            $table->integer('has_playlist')->default(0);
             $table->timestamps();
         });
     }

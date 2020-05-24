@@ -34,8 +34,13 @@ Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
 
     Route::post('/viajes/crear', 'TravelController@crearViaje');
     Route::post('/viajes/code', 'TravelController@comprobarCodigo');
+    Route::get('/viajes/getCode', 'TravelController@getCode');
+    Route::get('/viajes/passengers', 'TravelController@getPassengersData');
+    Route::get('/viajes/verify_playlist', 'TravelController@has_playlist');
 
-    Route::post('/spotify', 'UserController@VincularSpotify')->middleware('auth');
+    Route::post('/spotify', 'UserController@VincularSpotify');
+
+    Route::post('/addSongs', 'PlaylistController@addSongs');
 
 
 });

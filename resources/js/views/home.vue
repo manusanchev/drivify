@@ -1,6 +1,7 @@
 <template>
     <div>
         <profile-data></profile-data>
+        <notifications group="foo"/>
         <div class="container bg-light d-flex justify-content-between shad align-items-center flex-column flex-md-row p-5 mt-5 mb-5 r-menu">
             <router-link to="/perfil" class="text-decoration-none">
                 <div class="menu bg-white shadow r-menu mb-2">
@@ -38,7 +39,24 @@
 
 <script>
     export default {
+        props:["listo"],
+        data(){
+            return {
 
+            }
+        },
+        mounted() {
+            console.log(this.listo);
+            if(this.listo === 'ocupante-listo'){
+                this.$notify({
+                    group: 'foo',
+                    type: 'success',
+                    title: 'Guardado con exito!',
+                    duration: 10000,
+                });
+            }
+
+        }
     }
 </script>
 

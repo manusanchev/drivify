@@ -47,7 +47,14 @@
                         const response = await axios.post(this.url+"/auth-api/viajes/code", data, config);
                         console.log(response.data);
                         if(response.data[1] === 200){
-                            //redirigir a eleccion
+                            this.$router.push({path: 'ocupante/elegir'});
+                        }else if(response.data[1] === 1){
+                            this.$notify({
+                                group: 'foo',
+                                type: 'error',
+                                title: 'La sala esta completa',
+                                duration: 10000,
+                            });
                         }else{
                             this.$notify({
                                 group: 'foo',

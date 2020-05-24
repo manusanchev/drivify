@@ -102,8 +102,7 @@
                                 <h5>Otorga permisos a spotify</h5>
                             </div>
                             <div class="col-12  col-md-6 ">
-                                <button v-if="profile.spotify!=null" class="btn btn-danger">Desvincular cuenta</button>
-                                <button v-else class="btn btn-success" @click="vincularSpotifyGetAccess">Vincular
+                                <button class="btn btn-success" @click="vincularSpotifyGetAccess">Vincular
                                     Cuenta
                                 </button>
                             </div>
@@ -156,6 +155,8 @@
 
 
 <script>
+
+    import * as SpotifyWebApi from "spotify-web-api-js";
 
     export default {
         props: ["action"],
@@ -327,7 +328,7 @@
                 window.location.href = spotifyLogin;
 
             },
-            vincularSpotify(hash) {
+             vincularSpotify(hash) {
                 let result = {};
                 hash.split('&').forEach(item => {
                     result[item.split('=')[0]] = decodeURIComponent(item.split('=')[1]);
@@ -339,9 +340,10 @@
                     access_token: result.access_token,
                 }
 
-                 axios.post(this.url+'/auth-api/spotify',data)
+
+               axios.post(this.url+'/auth-api/spotify',data)
                 .then(response => {
-                    console.log(response.data.success);
+
                         if(response.data.success === 200){
                             window.history.go(-2);
 

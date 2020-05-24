@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Achievement;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Spotify;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -76,7 +77,9 @@ class RegisterController extends Controller
         $achievement = new Achievement();
         $achievement->user_id = $user;
         $achievement->save();
-
+        $spotify = new Spotify();
+        $spotify->user_id =$user;
+        $spotify->save();
         return User::find($user);
     }
 }

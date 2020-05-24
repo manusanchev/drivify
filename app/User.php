@@ -38,9 +38,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Spotify::class);
     }
     public function travels(){
-        return $this->belongsToMany(Travel::class);
+        return $this->belongsToMany(Travel::class)->withPivot('ready'); ;
     }
     public function awards(){
-        return $this->belongsToMany(Award::class);
+        return $this->belongsToMany(Award::class) ;
     }
 }

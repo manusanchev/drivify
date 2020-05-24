@@ -14,7 +14,8 @@
                 </svg>
                 Volver
             </router-link>
-
+            <h4 class="pb-5 text-center">Introduce el numero de total de ocupantes</h4>
+            <input type="number" min="2" class="form-control w-100 p-4 m-3" v-model="ocupantes" placeholder="Ocupantes" required >
             <h1 class="pb-5 text-center">Selecciona una salida y un destino</h1>
             <div id="map"></div>
             <input type="submit" @click="guardarDatos" class="btn btn-lg w-100 p-3 mt-4 shadow btn-dark w-50"
@@ -43,6 +44,7 @@
                 cooDestino: [],
                 distancia: 0,
                 duracion: 0,
+                ocupantes: 2,
                 url: window.location.origin
 
             }
@@ -108,6 +110,8 @@
                         formData.append('destino', this.destino);
                         formData.append('distancia', this.distancia);
                         formData.append('duracion', this.duracion);
+                        formData.append('ocupantes', this.ocupantes);
+
 
                     const config = {
                         headers: { 'Content-Type': 'application/json' }
@@ -120,9 +124,11 @@
 
                     }
 
-                    if(response4.data[1]===200){
+                    if(response4.data.length > 0){
                           //redirigir a la vista de eleccion de canciones
-                        this.$router.push({path: 'conductor/elegir'});
+                        let code = response4.data[1];
+                     await this.$router.push({name: 'conductor-elegir', params: {code: code}});
+                      //  this.$router.push({name: 'perfil', params: {action: 'redirect-spotify'}});
 
                     }else{
                         this.$notify({
