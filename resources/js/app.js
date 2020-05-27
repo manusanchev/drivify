@@ -33,6 +33,7 @@ Vue.component('travel-conductor', require('./views/travelConductor.vue').default
 Vue.component('travel-ocupante', require('./views/travelOcupante.vue').default);
 Vue.component('choose-song-conductor', require('./views/chooseSongConductor.vue').default);
 Vue.component('choose-song-ocupante', require('./views/chooseSongOcupante.vue').default);
+Vue.component('your-travels', require('./views/yourTravels.vue').default);
 
 
 

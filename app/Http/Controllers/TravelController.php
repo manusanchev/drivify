@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Achievement;
 use App\Travel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use MongoDB\Driver\Session;
 
 
 class TravelController extends Controller
@@ -29,10 +29,17 @@ class TravelController extends Controller
         $travel->save();
         $user = Auth::user();
         $user->travels()->attach($travel->id);
+        $id = DB::table("achievements")
+            ->where("user_id",6)->get("id");
+        $achievements = Achievement::find($id[0]->id);
+        $achievements->total_points =$achievements->total_points + (round(($request->ocupantes*$request->duracion)/($request->duracion/2)));
+        $achievements->total_kms =  $achievements->total_kms + $request->distancia;
+        $achievements->save();
         session(['travel_id' => $travel->id]);
         return response()->json(["code", $code]);
     }
     public function getCode(){
+
         $travel_id = session('travel_id');
         $travel = Travel::find($travel_id);
         return [
@@ -95,4 +102,9 @@ class TravelController extends Controller
 
         ];
     }
+
+    //tus viajes
+
+
+
 }

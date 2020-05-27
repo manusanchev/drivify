@@ -11323,7 +11323,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 if (!(Object.keys(_this.directions.getOrigin()).length !== 0 && Object.keys(_this.directions.getDestination()).length !== 0)) {
-                  _context.next = 48;
+                  _context.next = 49;
                   break;
                 }
 
@@ -11383,14 +11383,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log(_context.t0);
 
               case 39:
+                console.log(response4.data);
+
                 if (!(response4.data.length > 0)) {
-                  _context.next = 45;
+                  _context.next = 46;
                   break;
                 }
 
                 //redirigir a la vista de eleccion de canciones
                 code = response4.data[1];
-                _context.next = 43;
+                _context.next = 44;
                 return _this.$router.push({
                   name: 'conductor-elegir',
                   params: {
@@ -11398,29 +11400,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 });
 
-              case 43:
-                _context.next = 46;
+              case 44:
+                _context.next = 47;
                 break;
 
-              case 45:
+              case 46:
                 _this.$notify({
                   group: 'foo',
                   type: 'error',
                   title: 'No hay rutas!'
                 });
 
-              case 46:
-                _context.next = 49;
+              case 47:
+                _context.next = 50;
                 break;
 
-              case 48:
+              case 49:
                 _this.$notify({
                   group: 'foo',
                   type: 'error',
                   title: 'Debe elegir una salida y un Destino'
                 });
 
-              case 49:
+              case 50:
               case "end":
                 return _context.stop();
             }
@@ -11567,6 +11569,81 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravels.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -16108,6 +16185,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.main[data-v-5f4e8074]{\n    height: 75vh;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.icon-map[data-v-0094c1b7]{\n    background-image: url('https://cdn.pixabay.com/photo/2016/03/22/04/23/map-1272165_1280.png');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center;\n    width: 100px;\n    height: 100px;\n}\n\n", ""]);
 
 // exports
 
@@ -77341,6 +77437,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -78567,9 +78693,26 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "router-link",
+            {
+              staticClass: "text-decoration-none",
+              attrs: { to: "/tusViajes" }
+            },
+            [
+              _c("div", { staticClass: "menu bg-white shadow r-menu mb-2" }, [
+                _c("div", { staticClass: "img-menu img-menu-3 r-menu " }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  { staticClass: "font-weight-bold text-center h5 p-2" },
+                  [_vm._v("Mis viajes")]
+                )
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ],
         1
       )
@@ -78578,24 +78721,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "text-decoration-none", attrs: { href: "#" } },
-      [
-        _c("div", { staticClass: "menu bg-white shadow r-menu mb-2" }, [
-          _c("div", { staticClass: "img-menu img-menu-3 r-menu " }),
-          _vm._v(" "),
-          _c("p", { staticClass: "font-weight-bold text-center h5 p-2" }, [
-            _vm._v("Mis viajes")
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -79452,6 +79577,226 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "container w-75 shadow p-4 mt-4" },
+      [
+        _c("router-link", { attrs: { to: "/home" } }, [
+          _c(
+            "svg",
+            {
+              staticClass: "bi bi-arrow-left",
+              attrs: {
+                width: "1em",
+                height: "1em",
+                viewBox: "0 0 16 16",
+                fill: "currentColor",
+                xmlns: "http://www.w3.org/2000/svg"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  "fill-rule": "evenodd",
+                  d:
+                    "M5.854 4.646a.5.5 0 010 .708L3.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z",
+                  "clip-rule": "evenodd"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  "fill-rule": "evenodd",
+                  d:
+                    "M2.5 8a.5.5 0 01.5-.5h10.5a.5.5 0 010 1H3a.5.5 0 01-.5-.5z",
+                  "clip-rule": "evenodd"
+                }
+              })
+            ]
+          ),
+          _vm._v("\n            Volver\n        ")
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _vm._m(1)
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", [
+      _c("label", [_vm._v("Buscar Viajes por fecha")]),
+      _c("input", { staticClass: "form-control", attrs: { type: "date" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", [
+      _c("label", [_vm._v("Salida")]),
+      _vm._v(" "),
+      _c("select", { attrs: { name: "", id: "" } }, [
+        _c("option", { attrs: { value: "" } }, [_vm._v("Sevilla")])
+      ]),
+      _vm._v(" "),
+      _c("b", [_vm._v("-o-")]),
+      _vm._v(" "),
+      _c("label", [_vm._v("Destino")]),
+      _vm._v(" "),
+      _c("select", { attrs: { name: "", id: "" } }, [
+        _c("option", { attrs: { value: "" } }, [_vm._v("Lebrija")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container w-75 shadow p-4 mt-4" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container d-flex justify-content-around align-items-center"
+        },
+        [
+          _c("a", { attrs: { href: "" } }, [
+            _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Prev")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Tus viajes")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "" } }, [
+            _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Next")])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container shadow bg-light p-4 my-4" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
+          },
+          [
+            _c("div", { staticClass: "icon-map" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex justify-content-around align-content-center flex-column"
+              },
+              [
+                _c("h3", [_vm._v("17-02-2020")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Sevilla-Lebrija")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
+              _vm._v("Detalle")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
+          },
+          [
+            _c("div", { staticClass: "icon-map" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex justify-content-around align-content-center flex-column"
+              },
+              [
+                _c("h3", [_vm._v("17-02-2020")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Sevilla-Lebrija")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
+              _vm._v("Detalle")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
+          },
+          [
+            _c("div", { staticClass: "icon-map" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex justify-content-around align-content-center flex-column"
+              },
+              [
+                _c("h3", [_vm._v("17-02-2020")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Sevilla-Lebrija")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
+              _vm._v("Detalle")
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -95760,6 +96105,7 @@ Vue.component('travel-conductor', __webpack_require__(/*! ./views/travelConducto
 Vue.component('travel-ocupante', __webpack_require__(/*! ./views/travelOcupante.vue */ "./resources/js/views/travelOcupante.vue")["default"]);
 Vue.component('choose-song-conductor', __webpack_require__(/*! ./views/chooseSongConductor.vue */ "./resources/js/views/chooseSongConductor.vue")["default"]);
 Vue.component('choose-song-ocupante', __webpack_require__(/*! ./views/chooseSongOcupante.vue */ "./resources/js/views/chooseSongOcupante.vue")["default"]);
+Vue.component('your-travels', __webpack_require__(/*! ./views/yourTravels.vue */ "./resources/js/views/yourTravels.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -96174,9 +96520,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_travelOcupante__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/travelOcupante */ "./resources/js/views/travelOcupante.vue");
 /* harmony import */ var _views_chooseSongConductor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/chooseSongConductor */ "./resources/js/views/chooseSongConductor.vue");
 /* harmony import */ var _views_chooseSongOcupante__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/chooseSongOcupante */ "./resources/js/views/chooseSongOcupante.vue");
+/* harmony import */ var _views_yourTravels__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/yourTravels */ "./resources/js/views/yourTravels.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -96214,6 +96562,10 @@ var routes = [{
 }, {
   path: '/viaje/ocupante/elegir',
   component: _views_chooseSongOcupante__WEBPACK_IMPORTED_MODULE_8__["default"],
+  props: true
+}, {
+  path: '/tusViajes',
+  component: _views_yourTravels__WEBPACK_IMPORTED_MODULE_9__["default"],
   props: true
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -96756,6 +97108,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_travelOcupante_vue_vue_type_template_id_5f4e8074_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_travelOcupante_vue_vue_type_template_id_5f4e8074_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravels.vue":
+/*!********************************************!*\
+  !*** ./resources/js/views/yourTravels.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true& */ "./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true&");
+/* harmony import */ var _yourTravels_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yourTravels.vue?vue&type=script&lang=js& */ "./resources/js/views/yourTravels.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& */ "./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _yourTravels_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "0094c1b7",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/yourTravels.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravels.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/yourTravels.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravels.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=style&index=0&id=0094c1b7&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_style_index_0_id_0094c1b7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravels.vue?vue&type=template&id=0094c1b7&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

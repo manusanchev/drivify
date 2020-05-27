@@ -10,6 +10,7 @@ import travelConductor from "./views/travelConductor";
 import travelOcupante from "./views/travelOcupante";
 import chooseSongConductor from "./views/chooseSongConductor";
 import chooseSongOcupante from "./views/chooseSongOcupante";
+import yourTravels from "./views/yourTravels";
 const routes =  [
     {
         path : '/home',
@@ -51,6 +52,11 @@ const routes =  [
         component: chooseSongOcupante,
         props: true
     },
+    {
+        path: '/tusViajes',
+        component:yourTravels,
+        props: true,
+    }
 
 
 ]

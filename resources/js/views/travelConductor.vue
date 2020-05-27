@@ -123,12 +123,12 @@
                         console.log(err);
 
                     }
-
+                    console.log(response4.data);
                     if(response4.data.length > 0){
                           //redirigir a la vista de eleccion de canciones
                         let code = response4.data[1];
-                     await this.$router.push({name: 'conductor-elegir', params: {code: code}});
-                      //  this.$router.push({name: 'perfil', params: {action: 'redirect-spotify'}});
+                         await this.$router.push({name: 'conductor-elegir', params: {code: code}});
+
 
                     }else{
                         this.$notify({
