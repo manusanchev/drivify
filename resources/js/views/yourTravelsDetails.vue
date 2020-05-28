@@ -87,7 +87,7 @@
                     this.directions,
                     'top-left'
                 );
-            
+
 
                 this.directions.setOrigin(this.viaje.departure);
                 this.directions.setDestination(this.viaje.destination);

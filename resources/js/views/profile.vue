@@ -284,14 +284,15 @@
                     const config = {
                         headers: {'enctype': 'multipart/form-data'}
                     }
-
+                    let vm = this;
                     let formData = new FormData();
 
                     formData.append('image', this.editProfile.image);
 
                     axios.post(this.url + "/auth-api/perfil/uploadImage", formData, config)
                         .then(response => {
-                            if (response.data[1] === 200) {
+
+                            if (response.data.success === 200) {
                                 this.$notify({
                                     group: 'foo',
                                     type: 'success',

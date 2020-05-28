@@ -11126,10 +11126,11 @@ __webpack_require__.r(__webpack_exports__);
             'enctype': 'multipart/form-data'
           }
         };
+        var vm = this;
         var formData = new FormData();
         formData.append('image', this.editProfile.image);
         axios.post(this.url + "/auth-api/perfil/uploadImage", formData, config).then(function (response) {
-          if (response.data[1] === 200) {
+          if (response.data.success === 200) {
             _this4.$notify({
               group: 'foo',
               type: 'success',

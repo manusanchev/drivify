@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Achievement;
 use App\Travel;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -154,7 +155,8 @@ class TravelController extends Controller
             ];
 
         }
-        $travel = DB::table('travel')->where($where)->paginate(5);
+        $user = Auth::user();
+        $travel = $user->travels()->where($where)->paginate(5);
         return $travel;
 
         //return response()->json(["response",200]);

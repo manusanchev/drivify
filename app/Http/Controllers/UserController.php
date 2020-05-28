@@ -84,7 +84,7 @@ class UserController extends Controller
             $user->save();
             return response()->json(['success' => 200]);
         } else {
-            return response()->json(['error' => 500]);
+            return response()->json(['success' => 500]);
         }
 
     }
