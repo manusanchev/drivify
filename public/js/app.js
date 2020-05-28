@@ -11581,6 +11581,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -11636,6 +11644,117 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fecha: '',
+      salida: '',
+      destino: '',
+      viajes: [],
+      url: window.location.origin,
+      optionDestination: [],
+      optionDeparture: []
+    };
+  },
+  mounted: function mounted() {
+    this.getOptionDeparture();
+  },
+  methods: {
+    search: function search(page) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var formData, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                page = page || _this.url + "/auth-api/tusViajes/getViajes";
+                formData = new FormData();
+                formData.append('fecha', _this.fecha);
+                formData.append('salida', _this.salida);
+                formData.append('destino', _this.destino);
+                _context.next = 7;
+                return axios.post(page, formData);
+
+              case 7:
+                response = _context.sent;
+                _this.viajes = response.data;
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    getOptionDeparture: function getOptionDeparture() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var options;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(_this2.url + "/auth-api/tusViajes/options");
+
+              case 2:
+                options = _context2.sent;
+                _this2.optionDeparture = options.data.departures;
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    getOptionDestination: function getOptionDestination() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var formData, options;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                formData = new FormData();
+                formData.append('salida', _this3.salida);
+                _context3.next = 4;
+                return axios.post(_this3.url + "/auth-api/tusViajes/destination", formData);
+
+              case 4:
+                options = _context3.sent;
+                _this3.optionDestination = options.data.destinations;
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mapbox-gl */ "./node_modules/mapbox-gl/dist/mapbox-gl.js");
+/* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mapbox_gl__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -11643,7 +11762,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: window.location.origin,
+      viaje: {},
+      accessToken: 'pk.eyJ1IjoibWFudWVsc2FuY2hldiIsImEiOiJja2FiM2h2a2Ywejl1MnpsNWdjcG9uZGRhIn0.vvyM4shacZk92t-g3m7kFA'
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var id = window.location.search.split("=")[1];
+    var formData = new FormData();
+    formData.append("id", id);
+    axios.post(this.url + "/auth-api/tusViajes/detalles", formData).then(function (response) {
+      _this.viaje = response.data;
+
+      _this.initMap();
+    });
+  },
+  methods: {
+    initMap: function initMap() {
+      mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.accessToken = this.accessToken;
+      var map = new mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-3.7025600, 40.4165000],
+        zoom: 5
+      });
+      this.directions = new MapboxDirections({
+        accessToken: mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default.a.accessToken,
+        profile: 'mapbox/driving',
+        alternatives: false,
+        placeholderOrigin: "Elige el lugar de salida",
+        placeholderDestination: "Elige el lugar de destino"
+      });
+      map.addControl(this.directions, 'top-left');
+      this.directions.setOrigin(this.viaje.departure);
+      this.directions.setDestination(this.viaje.destination);
+    }
+  }
+});
 
 /***/ }),
 
@@ -16203,7 +16403,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.icon-map[data-v-0094c1b7]{\n    background-image: url('https://cdn.pixabay.com/photo/2016/03/22/04/23/map-1272165_1280.png');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center;\n    width: 100px;\n    height: 100px;\n}\n\n", ""]);
+exports.push([module.i, "\n.icon-map[data-v-0094c1b7] {\n    background-image: url('https://cdn.pixabay.com/photo/2016/03/22/04/23/map-1272165_1280.png');\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center;\n    width: 100px;\n    height: 100px;\n}\n.page-link[data-v-0094c1b7] {\n    cursor: pointer;\n}\n.show[data-v-0094c1b7] {\n    display: none !important;\n}\n\n", ""]);
 
 // exports
 
@@ -79639,53 +79839,126 @@ var render = function() {
           _vm._v("\n            Volver\n        ")
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("form", [
+          _c("label", [_vm._v("Buscar Viajes por fecha")]),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fecha,
+                expression: "fecha"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date" },
+            domProps: { value: _vm.fecha },
+            on: {
+              change: function($event) {
+                return _vm.search(null)
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.fecha = $event.target.value
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _vm._m(1)
+        _c("form", [
+          _c("label", [_vm._v("Salida")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.salida,
+                  expression: "salida"
+                }
+              ],
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.salida = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  _vm.getOptionDestination
+                ]
+              }
+            },
+            _vm._l(_vm.optionDeparture, function(salid) {
+              return _c("option", { domProps: { value: salid } }, [
+                _vm._v(_vm._s(salid))
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("label", [_vm._v("Destino")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.destino,
+                  expression: "destino"
+                }
+              ],
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.destino = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  function($event) {
+                    return _vm.search(null)
+                  }
+                ]
+              }
+            },
+            _vm._l(_vm.optionDestination, function(desti) {
+              return _c("option", { domProps: { value: desti } }, [
+                _vm._v(_vm._s(desti))
+              ])
+            }),
+            0
+          )
+        ])
       ],
       1
     ),
     _vm._v(" "),
-    _vm._m(2)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("form", [
-      _c("label", [_vm._v("Buscar Viajes por fecha")]),
-      _c("input", { staticClass: "form-control", attrs: { type: "date" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("form", [
-      _c("label", [_vm._v("Salida")]),
-      _vm._v(" "),
-      _c("select", { attrs: { name: "", id: "" } }, [
-        _c("option", { attrs: { value: "" } }, [_vm._v("Sevilla")])
-      ]),
-      _vm._v(" "),
-      _c("b", [_vm._v("-o-")]),
-      _vm._v(" "),
-      _c("label", [_vm._v("Destino")]),
-      _vm._v(" "),
-      _c("select", { attrs: { name: "", id: "" } }, [
-        _c("option", { attrs: { value: "" } }, [_vm._v("Lebrija")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container w-75 shadow p-4 mt-4" }, [
+    _c("div", { staticClass: "container w-75 shadow p-4 mt-4" }, [
       _c(
         "div",
         {
@@ -79693,106 +79966,214 @@ var staticRenderFns = [
             "container d-flex justify-content-around align-items-center"
         },
         [
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Prev")])
+          _c(
+            "div",
+            {
+              staticClass: "p-3 bg-light page-link",
+              on: {
+                click: function($event) {
+                  return _vm.search(_vm.viajes.prev_page_url)
+                }
+              }
+            },
+            [_vm._v("Prev")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-3 bg-light" }, [
+            _vm._v(
+              "Pagina " +
+                _vm._s(_vm.viajes.current_page) +
+                " / " +
+                _vm._s(_vm.viajes.last_page)
+            )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Tus viajes")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "p-3 bg-light" }, [_vm._v("Next")])
-          ])
+          _c(
+            "div",
+            {
+              staticClass: "p-3 bg-light page-link",
+              on: {
+                click: function($event) {
+                  return _vm.search(_vm.viajes.next_page_url)
+                }
+              }
+            },
+            [_vm._v("Next")]
+          )
         ]
       ),
       _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container shadow bg-light p-4 my-4" },
+        _vm._l(_vm.viajes.data, function(viaje) {
+          return _c(
+            "div",
+            {
+              key: viaje.id,
+              staticClass:
+                "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
+            },
+            [
+              _c("div", { staticClass: "icon-map" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex justify-content-around align-content-center flex-column"
+                },
+                [
+                  _c("h3", [_vm._v(_vm._s(viaje.travel_date))]),
+                  _vm._v(" "),
+                  _c("h6", [
+                    _vm._v("Salida: " + _vm._s(viaje.departure)),
+                    _c("br"),
+                    _vm._v("Destino: " + _vm._s(viaje.destination))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-dark px-5 py-2",
+                  attrs: {
+                    to: {
+                      path: "/tusViajes/detalles",
+                      query: { travel: viaje.id }
+                    }
+                  }
+                },
+                [_vm._v("Detalle")]
+              )
+            ],
+            1
+          )
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container w-75 shadow p-4 my-4" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container d-flex justify-content-around align-items-center"
+        },
+        [
+          _c("router-link", { attrs: { to: "/tusViajes" } }, [
+            _c(
+              "svg",
+              {
+                staticClass: "bi bi-arrow-left",
+                attrs: {
+                  width: "1em",
+                  height: "1em",
+                  viewBox: "0 0 16 16",
+                  fill: "currentColor",
+                  xmlns: "http://www.w3.org/2000/svg"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M5.854 4.646a.5.5 0 010 .708L3.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z",
+                    "clip-rule": "evenodd"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M2.5 8a.5.5 0 01.5-.5h10.5a.5.5 0 010 1H3a.5.5 0 01-.5-.5z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]
+            ),
+            _vm._v("\n                Volver\n            ")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c("div", { staticClass: "container shadow bg-light p-4 my-4" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
-          },
-          [
-            _c("div", { staticClass: "icon-map" }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex justify-content-around align-content-center flex-column"
-              },
-              [
-                _c("h3", [_vm._v("17-02-2020")]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Sevilla-Lebrija")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
-              _vm._v("Detalle")
+        _c("table", { staticClass: "table" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("td", [_vm._v(_vm._s(_vm.viaje.departure))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.viaje.destination))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.viaje.passengers))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.viaje.distance) + " KM")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.viaje.travel_date))])
             ])
-          ]
-        ),
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container w-75 shadow p-4 mt-4" }, [
+      _c("div", { attrs: { id: "map" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Salida")]),
         _vm._v(" "),
-        _c("hr"),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Destino")]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
-          },
-          [
-            _c("div", { staticClass: "icon-map" }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex justify-content-around align-content-center flex-column"
-              },
-              [
-                _c("h3", [_vm._v("17-02-2020")]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Sevilla-Lebrija")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
-              _vm._v("Detalle")
-            ])
-          ]
-        ),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ocupantes")]),
         _vm._v(" "),
-        _c("hr"),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Kms")]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row"
-          },
-          [
-            _c("div", { staticClass: "icon-map" }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex justify-content-around align-content-center flex-column"
-              },
-              [
-                _c("h3", [_vm._v("17-02-2020")]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Sevilla-Lebrija")])
-              ]
-            ),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn btn-dark px-5 py-2" }, [
-              _vm._v("Detalle")
-            ])
-          ]
-        )
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha")])
       ])
     ])
   }
@@ -96106,6 +96487,7 @@ Vue.component('travel-ocupante', __webpack_require__(/*! ./views/travelOcupante.
 Vue.component('choose-song-conductor', __webpack_require__(/*! ./views/chooseSongConductor.vue */ "./resources/js/views/chooseSongConductor.vue")["default"]);
 Vue.component('choose-song-ocupante', __webpack_require__(/*! ./views/chooseSongOcupante.vue */ "./resources/js/views/chooseSongOcupante.vue")["default"]);
 Vue.component('your-travels', __webpack_require__(/*! ./views/yourTravels.vue */ "./resources/js/views/yourTravels.vue")["default"]);
+Vue.component('your-travels-details', __webpack_require__(/*! ./views/yourTravelsDetails.vue */ "./resources/js/views/yourTravelsDetails.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -96521,9 +96903,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_chooseSongConductor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/chooseSongConductor */ "./resources/js/views/chooseSongConductor.vue");
 /* harmony import */ var _views_chooseSongOcupante__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/chooseSongOcupante */ "./resources/js/views/chooseSongOcupante.vue");
 /* harmony import */ var _views_yourTravels__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/yourTravels */ "./resources/js/views/yourTravels.vue");
+/* harmony import */ var _views_yourTravelsDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/yourTravelsDetails */ "./resources/js/views/yourTravelsDetails.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -96566,6 +96950,11 @@ var routes = [{
 }, {
   path: '/tusViajes',
   component: _views_yourTravels__WEBPACK_IMPORTED_MODULE_9__["default"],
+  props: true
+}, {
+  path: '/tusViajes/detalles',
+  name: "details",
+  component: _views_yourTravelsDetails__WEBPACK_IMPORTED_MODULE_10__["default"],
   props: true
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -97195,6 +97584,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravels_vue_vue_type_template_id_0094c1b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravelsDetails.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/views/yourTravelsDetails.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true& */ "./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true&");
+/* harmony import */ var _yourTravelsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./yourTravelsDetails.vue?vue&type=script&lang=js& */ "./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _yourTravelsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "744c488a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/yourTravelsDetails.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravelsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravelsDetails.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravelsDetails.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravelsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/yourTravelsDetails.vue?vue&type=template&id=744c488a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_yourTravelsDetails_vue_vue_type_template_id_744c488a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

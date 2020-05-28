@@ -42,6 +42,10 @@ Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
 
     Route::post('/addSongs', 'PlaylistController@addSongs');
 
+    Route::post('/tusViajes/getViajes', 'TravelController@getViajes');
+    Route::get('/tusViajes/options', 'TravelController@options');
+    Route::post('/tusViajes/destination', 'TravelController@optionsDestination');
+    Route::post('/tusViajes/detalles', 'TravelController@detalles');
 
 });
 

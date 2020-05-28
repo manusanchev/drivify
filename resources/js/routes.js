@@ -11,6 +11,8 @@ import travelOcupante from "./views/travelOcupante";
 import chooseSongConductor from "./views/chooseSongConductor";
 import chooseSongOcupante from "./views/chooseSongOcupante";
 import yourTravels from "./views/yourTravels";
+import yourTravelsDetails from "./views/yourTravelsDetails";
+
 const routes =  [
     {
         path : '/home',
@@ -55,6 +57,12 @@ const routes =  [
     {
         path: '/tusViajes',
         component:yourTravels,
+        props: true,
+    },
+    {
+        path: '/tusViajes/detalles',
+        name:"details",
+        component:yourTravelsDetails,
         props: true,
     }
 

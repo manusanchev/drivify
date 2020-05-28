@@ -13,7 +13,8 @@ use Illuminate\Support\Str;
 
 class TravelController extends Controller
 {
-    public function crearViaje(Request $request){
+    public function crearViaje(Request $request)
+    {
 
         $travel = new Travel();
         $code = Str::random(6);
@@ -30,81 +31,139 @@ class TravelController extends Controller
         $user = Auth::user();
         $user->travels()->attach($travel->id);
         $id = DB::table("achievements")
-            ->where("user_id",6)->get("id");
+            ->where("user_id", 6)->get("id");
         $achievements = Achievement::find($id[0]->id);
-        $achievements->total_points =$achievements->total_points + (round(($request->ocupantes*$request->duracion)/($request->duracion/2)));
-        $achievements->total_kms =  $achievements->total_kms + $request->distancia;
+        $achievements->total_points = $achievements->total_points + (round(($request->ocupantes * $request->distancia) / ($request->duracion / 2)));
+        $achievements->total_kms = $achievements->total_kms + $request->distancia;
         $achievements->save();
         session(['travel_id' => $travel->id]);
         return response()->json(["code", $code]);
     }
-    public function getCode(){
+
+    public function getCode()
+    {
 
         $travel_id = session('travel_id');
         $travel = Travel::find($travel_id);
         return [
             "travel_code" => $travel->travel_code,
             "duracion" => $travel->duration
-    ];
+        ];
 
     }
 
-    public function comprobarCodigo(Request $request){
-        $codigo= $request->codigo;
+    public function comprobarCodigo(Request $request)
+    {
+        $codigo = $request->codigo;
 
-        $travel = Travel::where('travel_code',"LIKE",$codigo)->get();
+        $travel = Travel::where('travel_code', "LIKE", $codigo)->get();
 
-        if(sizeof($travel) > 0){
+        if (sizeof($travel) > 0) {
             $countPassengers = DB::table('travel_user')->where('travel_id', $travel[0]->id)->count();
 
-            if($travel[0]->passengers > $countPassengers){
+            if ($travel[0]->passengers > $countPassengers) {
                 $user = Auth::user();
                 $user->travels()->attach($travel[0]->id);
                 session(['travel_id' => $travel[0]->id]);
-                return response()->json(["success",200]);
+                return response()->json(["success", 200]);
 
-            }else{
+            } else {
 
-                return response()->json(["limit",1]);
+                return response()->json(["limit", 1]);
             }
 
 
-        }else{
-            return response()->json(["error",404]);
+        } else {
+            return response()->json(["error", 404]);
         }
 
 
     }
-    public function has_playlist(){
 
-        if(session()->has("travel_id")){
+    public function has_playlist()
+    {
+
+        if (session()->has("travel_id")) {
             $travel_id = session('travel_id');
             $travel = Travel::find($travel_id);
-            if($travel->has_playlist){
+            if ($travel->has_playlist) {
                 return response()->json(["response" => "yes"]);
-            }else{
+            } else {
                 return response()->json(["response" => "no"]);
             }
-        }else{
-            return response()->json(["response",500]);
+        } else {
+            return response()->json(["response", 500]);
         }
     }
 
 
-    public function getPassengersData(){
+    public function getPassengersData()
+    {
         $travel_id = session('travel_id');
         $travel = Travel::find($travel_id);
 
-        $pasajerosReady =  DB::table('travel_user')->where([['travel_id', $travel_id],["ready" , 1]])->count();
+        $pasajerosReady = DB::table('travel_user')->where([['travel_id', $travel_id], ["ready", 1]])->count();
         return [
-            "pasajeros_listos"=> $pasajerosReady,
-            "pasajeros_total"=> $travel->passengers
+            "pasajeros_listos" => $pasajerosReady,
+            "pasajeros_total" => $travel->passengers
 
         ];
     }
 
     //tus viajes
+    public function options()
+    {
+        $user = Auth::user();
 
+        $departures = $user->travels()->get()->unique('departure')->pluck("departure");
+
+        return response()->json(["departures" => $departures]);
+    }
+
+    public function optionsDestination(Request $request)
+    {
+        $user = Auth::user();
+        $destinations = $user->travels()->where(["departure" => $request->salida])->get()->unique('destination')->pluck("destination");
+        return response()->json(["destinations" => $destinations]);
+    }
+
+    public function getViajes(Request $request)
+    {
+        $fecha = $request->fecha;
+        $salida = $request->salida;
+        $destino = $request->destino;
+
+        $where = [];
+
+        if (strlen($fecha) > 0 && (strlen($salida) == 0 && strlen($destino) == 0)) {
+
+            $where = [
+                "travel_date" => $fecha,
+            ];
+        } else if (strlen($salida) > 0 && strlen($destino) > 0) {
+            $where = [
+                "departure" => $salida,
+                "destination" => $destino
+            ];
+
+        } else {
+            $where = [
+                "travel_date" => $fecha,
+                "departure" => $salida,
+                "destination" => $destino
+            ];
+
+        }
+        $travel = DB::table('travel')->where($where)->paginate(5);
+        return $travel;
+
+        //return response()->json(["response",200]);
+    }
+    public function detalles(Request $request){
+
+        $travel = Travel::find($request->id);
+        return $travel;
+    }
 
 
 }

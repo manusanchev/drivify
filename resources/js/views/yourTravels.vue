@@ -13,47 +13,40 @@
                 Volver
             </router-link>
             <form>
-                <label>Buscar Viajes por fecha</label><input type="date" class="form-control">
+                <label>Buscar Viajes por fecha</label><input type="date" v-model="fecha" class="form-control"
+                                                             @change="search(null)">
             </form>
             <hr>
             <form>
-                <label>Salida</label> <select name="" id=""><option value="">Sevilla</option></select> <b>-o-</b>
-                <label>Destino</label> <select name="" id=""><option value="">Lebrija</option></select>
+                <label>Salida</label>
+                <select v-model="salida" @change="getOptionDestination">
+                    <option v-for="salid in optionDeparture" :value="salid" >{{salid}}</option>
+                </select>
+                <br>
+                <label>Destino</label>
+                <select v-model="destino" @change="search(null)">
+                <option v-for="desti in optionDestination" :value="desti">{{desti}}</option>
+            </select>
             </form>
         </div>
         <div class="container w-75 shadow p-4 mt-4">
             <div class="container d-flex justify-content-around align-items-center">
-                <a href=""><div class="p-3 bg-light">Prev</div></a>
-                <div class="p-3 bg-light">Tus viajes</div>
-                <a href=""><div class="p-3 bg-light">Next</div></a>
+                <div class="p-3 bg-light page-link" @click="search(viajes.prev_page_url)">Prev</div>
+                <div class="p-3 bg-light">Pagina {{viajes.current_page}} / {{viajes.last_page}}</div>
+                <div class="p-3 bg-light page-link" @click="search(viajes.next_page_url)">Next</div>
             </div>
             <div class="container shadow bg-light p-4 my-4">
-                <div class="container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row">
+                <div v-for="viaje in viajes.data" :key="viaje.id"
+                     class="container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row">
                     <div class="icon-map"></div>
                     <div class="d-flex justify-content-around align-content-center flex-column">
-                        <h3>17-02-2020</h3>
-                        <h3>Sevilla-Lebrija</h3>
+                        <h3>{{viaje.travel_date}}</h3>
+                        <h6>Salida: {{viaje.departure}}<br>Destino: {{viaje.destination}}</h6>
                     </div>
-                    <button class="btn btn-dark px-5 py-2">Detalle</button>
+                    <router-link class="btn btn-dark px-5 py-2" :to="{ path: '/tusViajes/detalles', query: { travel: viaje.id }}">Detalle</router-link>
+
                 </div>
-                <hr>
-                <div class="container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row">
-                    <div class="icon-map"></div>
-                    <div class="d-flex justify-content-around align-content-center flex-column">
-                        <h3>17-02-2020</h3>
-                        <h3>Sevilla-Lebrija</h3>
-                    </div>
-                    <button class="btn btn-dark px-5 py-2">Detalle</button>
-                </div>
-                <hr>
-                <div class="container-fluid my-4 d-flex justify-content-around align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row">
-                    <div class="icon-map"></div>
-                    <div class="d-flex justify-content-around align-content-center flex-column">
-                        <h3>17-02-2020</h3>
-                        <h3>Sevilla-Lebrija</h3>
-                    </div>
-                    <button class="btn btn-dark px-5 py-2">Detalle</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -62,19 +55,67 @@
 
 <script>
     export default {
+        data() {
+            return {
+                fecha: '',
+                salida: '',
+                destino: '',
+                viajes: [],
+                url: window.location.origin,
+                optionDestination: [],
+                optionDeparture: [],
+            }
+        },
+        mounted() {
+            this.getOptionDeparture();
+        },
+        methods: {
+            async search(page) {
 
+                page = page || this.url + "/auth-api/tusViajes/getViajes";
+                let formData = new FormData();
+
+                formData.append('fecha', this.fecha);
+                formData.append('salida', this.salida);
+                formData.append('destino', this.destino);
+
+
+                const response = await axios.post(page, formData);
+                this.viajes = response.data;
+            },
+            async getOptionDeparture() {
+                let options = await axios.get(this.url + "/auth-api/tusViajes/options");
+
+                this.optionDeparture = options.data.departures;
+
+            },
+            async getOptionDestination(){
+                let formData = new FormData();
+                formData.append('salida',this.salida);
+                let options = await axios.post(this.url+"/auth-api/tusViajes/destination", formData);
+               this.optionDestination = options.data.destinations;
+            }
+        }
     }
 </script>
 
 
 <style scoped>
-    .icon-map{
+    .icon-map {
         background-image: url('https://cdn.pixabay.com/photo/2016/03/22/04/23/map-1272165_1280.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         width: 100px;
         height: 100px;
+    }
+
+    .page-link {
+        cursor: pointer;
+    }
+
+    .show {
+        display: none !important;
     }
 
 </style>
