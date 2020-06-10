@@ -12,6 +12,7 @@ import chooseSongConductor from "./views/chooseSongConductor";
 import chooseSongOcupante from "./views/chooseSongOcupante";
 import yourTravels from "./views/yourTravels";
 import yourTravelsDetails from "./views/yourTravelsDetails";
+import awards from "./views/awards";
 
 const routes =  [
     {
@@ -64,7 +65,14 @@ const routes =  [
         name:"details",
         component:yourTravelsDetails,
         props: true,
+    },
+    {
+        path: '/logros',
+        name:"logros",
+        component:awards,
+        props: true,
     }
+
 
 
 ]

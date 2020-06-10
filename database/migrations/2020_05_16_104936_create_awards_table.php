@@ -16,8 +16,8 @@ class CreateAwardsTable extends Migration
         Schema::create('awards', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('price');
-            $table->double('discount')->nullable();
+            $table->integer('price');
+            $table->string('img');
             $table->timestamps();
         });
     }

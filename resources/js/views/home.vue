@@ -21,14 +21,12 @@
                     <p class="font-weight-bold text-center h5 p-2">Mis viajes</p>
                 </div>
             </router-link>
-            <a href="#" class="text-decoration-none">
+            <router-link to="/logros" class="text-decoration-none">
                 <div class="menu bg-white shadow  r-menu mb-2">
-                    <div class="img-menu img-menu-4 r-menu">
-
-                    </div>
-                    <p class="font-weight-bold text-center h5 p-2">Tienda</p>
+                    <div class="img-menu img-menu-4 r-menu"></div>
+                    <p class="font-weight-bold text-center h5 p-2">Logros</p>
                 </div>
-            </a>
+            </router-link>
         </div>
 
     </div>

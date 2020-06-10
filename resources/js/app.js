@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import awards from "./views/awards";
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -35,6 +37,7 @@ Vue.component('choose-song-conductor', require('./views/chooseSongConductor.vue'
 Vue.component('choose-song-ocupante', require('./views/chooseSongOcupante.vue').default);
 Vue.component('your-travels', require('./views/yourTravels.vue').default);
 Vue.component('your-travels-details', require('./views/yourTravelsDetails.vue').default);
+Vue.component('awards', require('./views/awards.vue').default);
 
 
 
