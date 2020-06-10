@@ -19,12 +19,25 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+   
+    Route::get('/admin/dashboard', function(){
+        return view('home');
+    });
+  
+});
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
 
+    Route::group(['middleware' => ['auth', 'admin']], function() {
+        Route::get('/admin/users', 'AdminController@getDataUsers');
+        Route::get('/admin/viajes', 'AdminController@getDataViajes');
+
+        Route::post('/admin/users/edit', 'AdminController@editDataUser');
+        Route::post('/admin/users/delete', 'AdminController@deleteDataUser');
+    });
     Route::get('/user', 'UserController@getHomeData')->name('homeData');
 
     Route::get('/perfil', 'UserController@getPerfil')->name('img');
@@ -53,6 +66,8 @@ Route::group(['prefix' => 'auth-api', 'middleware' => ['auth']], function () {
 });
 
 //
+
+
 Route::get('/{vue_capture}', function () {
     return view('home');
 })->where('vue_capture', '^(?!storage).*$')->middleware('auth');

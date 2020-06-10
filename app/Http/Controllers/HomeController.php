@@ -34,7 +34,12 @@ class HomeController extends Controller
             return view('auth/verify');
 
         }else{
-            return view('home');
+            if($user->roles == "admin"){
+                return redirect('/admin/dashboard');
+            }else{
+                return view('home');
+            }
+           
         }
 
     }

@@ -39,7 +39,8 @@
                 axios.get(this.url+"/auth-api/user")
                     .then(response => {
                         this.profile = response.data;
-                        this.profile.image = "/images/"+this.profile.image;
+                         if(this.profile.image!=null)
+                                this.profile.image = "/images/"+this.profile.image;
 
                     });
 

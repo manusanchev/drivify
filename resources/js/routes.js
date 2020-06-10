@@ -13,7 +13,9 @@ import chooseSongOcupante from "./views/chooseSongOcupante";
 import yourTravels from "./views/yourTravels";
 import yourTravelsDetails from "./views/yourTravelsDetails";
 import awards from "./views/awards";
-
+import adminUsers from "./views/adminUsers";
+import adminTravels from "./views/adminTravels";
+import adminDashboard from "./components/adminDashboard";
 const routes =  [
     {
         path : '/home',
@@ -71,7 +73,24 @@ const routes =  [
         name:"logros",
         component:awards,
         props: true,
-    }
+    },
+    {
+        path: '/admin/dashboard',
+        component: adminDashboard,
+        name:'admin',
+        props: true,
+        children: [
+            {
+              path: 'users',
+              component: adminUsers,         
+            },
+             {
+              path: 'travels',
+              component: adminTravels,         
+            }       
+          ],
+    },
+   
 
 
 

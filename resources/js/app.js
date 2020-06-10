@@ -25,7 +25,7 @@ Vue.component('header-component', require('./components/headerComponent.vue').de
 Vue.component('footer-component', require('./components/footerComponent.vue').default);
 Vue.component('profile-data', require('./components/profileData.vue').default);
 Vue.component('choose-songs', require('./components/chooseSongs.vue').default);
-
+Vue.component('admin-dashboard', require('./components/adminDashboard.vue').default);
 
 
 Vue.component('home', require('./views/home.vue').default);
@@ -39,6 +39,9 @@ Vue.component('your-travels', require('./views/yourTravels.vue').default);
 Vue.component('your-travels-details', require('./views/yourTravelsDetails.vue').default);
 Vue.component('awards', require('./views/awards.vue').default);
 
+
+Vue.component('admin-travels', require('./views/adminTravels.vue').default);
+Vue.component('admin-users', require('./views/adminUsers.vue').default);
 
 
 /**

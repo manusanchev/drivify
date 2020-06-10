@@ -8,8 +8,8 @@
                    aria-expanded="false">
                     <div class="media-body mr-3 text-white font-weight-bold ">Bienvenido, {{profile.username}}</div>
 
-                    <div v-if="profile.image!=null" class="img default mr-5 d-none rounded-circle d-lg-block" :style="{backgroundImage: 'url(' + profile.image+')'}" alt="avatar"></div>
-                    <div v-else class="img default mr-5 d-none rounded-circle d-lg-block" alt="avatar"></div>
+                <div v-if="profile.image!=null" class="img default mr-5 d-none rounded-circle d-lg-block" :style="{backgroundImage: 'url(' + profile.image+')'}" alt="avatar"></div>
+                 <div v-else class="img default mr-5 d-none rounded-circle d-lg-block" alt="avatar"></div>
 
                 </a>
                 <form action="/logout" method="post">
@@ -43,6 +43,7 @@
                 axios.get(this.url+"/auth-api/user")
                 .then(response => {
                     this.profile = response.data;
+                    if(this.profile.image!=null)
                     this.profile.image = "/images/"+this.profile.image;
                 });
             }
