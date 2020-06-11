@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="con">
         <div class="container w-75 shadow p-4 mt-4">
             <router-link to="/home">
                 <svg class="bi bi-arrow-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -117,5 +117,9 @@
     .show {
         display: none !important;
     }
+ .con {
+  min-height: 80vh;
+}
+
 
 </style>

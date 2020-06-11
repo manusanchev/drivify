@@ -16,7 +16,7 @@ class CreateTravelUserTable extends Migration
         Schema::create('travel_user', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('travel_id');
-            $table->boolean('ready');
+            $table->boolean('ready')->default(0);
             $table->timestamps();
         });
     }

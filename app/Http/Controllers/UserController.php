@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Spotify;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -91,7 +92,7 @@ class UserController extends Controller
 
     public function eliminarPerfil()
     {
-        $user = Auth::user();
+        $user = User::find(Auth::user()->getAuthIdentifier());
         $user->delete();
         Auth::logout();
         Session::flush();

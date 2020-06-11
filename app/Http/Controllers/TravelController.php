@@ -32,7 +32,7 @@ class TravelController extends Controller
         $user = Auth::user();
         $user->travels()->attach($travel->id);
         $id = DB::table("achievements")
-            ->where("user_id", 6)->get("id");
+            ->where("user_id", $user->getAuthIdentifier())->get("id");
         $achievements = Achievement::find($id[0]->id);
         $achievements->total_points = $achievements->total_points + (round(($request->ocupantes * $request->distancia) / ($request->duracion / 2)));
         $achievements->total_kms = $achievements->total_kms + $request->distancia;

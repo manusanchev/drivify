@@ -1,6 +1,7 @@
 <template>
-    <div>
-
+    <div class="con">
+        
+       
         <div class="main container bg-light shadow mt-5 mb-5 r-menu">
             <router-link to="/home">
                 <svg class="bi bi-arrow-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -31,6 +32,8 @@
 </script>
 
 
-<style>
-
+<style scoped>
+ .con {
+  min-height: 80vh;
+}
 </style>

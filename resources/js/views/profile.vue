@@ -196,6 +196,7 @@
             },
             deleteAccount() {
                 axios.delete(this.url + "/auth-api/perfil/eliminar")
+                    .then(response => window.location.reload())
                     .catch(error => window.location.reload());
             },
             editarNombre() {
